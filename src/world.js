@@ -618,6 +618,7 @@ function _wHud(){
 }
 function _wHintLine(){
   let d=SET.controlHints&&SET.controlHints!=='auto'?SET.controlHints:(typeof lastDevice!=='undefined'?lastDevice:'keyboard');
+  if(d==='keyboard'&&(!SET.controlHints||SET.controlHints==='auto')&&window.matchMedia&&matchMedia('(pointer:coarse)').matches&&!(navigator.keyboard))d='touch';
   if(d==='mouse')return t('w_hint_mouse');if(d==='touch')return t('w_hint_touch');if(d==='pad')return t('w_hint_pad');
   const k=a=>{const c=SET.keys&&SET.keys[a]&&SET.keys[a].find(Boolean);if(!c)return'?';try{return typeof keyName==='function'?keyName(c):c;}catch(e){return c;}};
   const mv=SET.keys&&SET.keys.up&&SET.keys.up.includes('KeyW')?'WASD':'↑↓←→';

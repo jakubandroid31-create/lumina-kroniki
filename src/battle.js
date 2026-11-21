@@ -741,7 +741,9 @@ function battleRender(){
   ctx.save();
   if(B.ev){_bRenderEvo(tm);ctx.restore();return;}
   let th=null;try{th=(typeof world!=='undefined'&&world&&world.th)||(typeof THEMES!=='undefined'?THEMES.meadow:null);}catch(e){}
-  try{drawBattleBg(ctx,th,tm);}catch(e){ctx.fillStyle='#88c8e8';ctx.fillRect(0,0,W,H/2);ctx.fillStyle='#78c060';ctx.fillRect(0,H/2,W,H/2);}
+  let _arena=false;
+  if(B.kind==='boss'&&typeof drawBossArena==='function'&&typeof world!=='undefined'&&world){try{drawBossArena(ctx,world.li,tm,(B.final&&B.ei>0)?2:1);_arena=true;}catch(e){_arena=false;}}
+  if(!_arena)try{drawBattleBg(ctx,th,tm);}catch(e){ctx.fillStyle='#88c8e8';ctx.fillRect(0,0,W,H/2);ctx.fillStyle='#78c060';ctx.fillRect(0,H/2,W,H/2);}
   _bDrawMon('e',tm);
   _bDrawMon('a',tm);
   _bRenderOrb(tm);

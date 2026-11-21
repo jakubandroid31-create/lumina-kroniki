@@ -6,6 +6,8 @@
 <title>LUMINA: Kroniki Dziesięciu Krain</title>
 <meta name="description" content="JRPG pixel-art: 10 krain, łapanie stworzeń, walki turowe. PL/EN. Przeglądarka, Android, iOS.">
 <meta name="theme-color" content="#0a1230">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; media-src 'self' blob: https:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -3522,7 +3524,9 @@ function battleRender(){
   ctx.save();
   if(B.ev){_bRenderEvo(tm);ctx.restore();return;}
   let th=null;try{th=(typeof world!=='undefined'&&world&&world.th)||(typeof THEMES!=='undefined'?THEMES.meadow:null);}catch(e){}
-  try{drawBattleBg(ctx,th,tm);}catch(e){ctx.fillStyle='#88c8e8';ctx.fillRect(0,0,W,H/2);ctx.fillStyle='#78c060';ctx.fillRect(0,H/2,W,H/2);}
+  let _arena=false;
+  if(B.kind==='boss'&&typeof drawBossArena==='function'&&typeof world!=='undefined'&&world){try{drawBossArena(ctx,world.li,tm,(B.final&&B.ei>0)?2:1);_arena=true;}catch(e){_arena=false;}}
+  if(!_arena)try{drawBattleBg(ctx,th,tm);}catch(e){ctx.fillStyle='#88c8e8';ctx.fillRect(0,0,W,H/2);ctx.fillStyle='#78c060';ctx.fillRect(0,H/2,W,H/2);}
   _bDrawMon('e',tm);
   _bDrawMon('a',tm);
   _bRenderOrb(tm);
@@ -4159,6 +4163,7 @@ function _wHud(){
 }
 function _wHintLine(){
   let d=SET.controlHints&&SET.controlHints!=='auto'?SET.controlHints:(typeof lastDevice!=='undefined'?lastDevice:'keyboard');
+  if(d==='keyboard'&&(!SET.controlHints||SET.controlHints==='auto')&&window.matchMedia&&matchMedia('(pointer:coarse)').matches&&!(navigator.keyboard))d='touch';
   if(d==='mouse')return t('w_hint_mouse');if(d==='touch')return t('w_hint_touch');if(d==='pad')return t('w_hint_pad');
   const k=a=>{const c=SET.keys&&SET.keys[a]&&SET.keys[a].find(Boolean);if(!c)return'?';try{return typeof keyName==='function'?keyName(c):c;}catch(e){return c;}};
   const mv=SET.keys&&SET.keys.up&&SET.keys.up.includes('KeyW')?'WASD':'↑↓←→';
