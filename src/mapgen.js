@@ -193,7 +193,7 @@ _MG_LAY.forest=G=>{
     else if(r()<0.12){G.disc(x,y,3.5+r()*1.5,3+r(),(xx,yy)=>G.set(xx,yy,T_FLOOR),0.5);G.grassBlob(x,y,3,2.5);G.poi(x,y,'lore');G.room(x-4,y-3,8,6);}
     else G.disc(x,y,1.2,1.2,(xx,yy)=>G.set(xx,yy,T_FLOOR));});
   // undergrowth
-  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=G.I(x,y);if(G.T[i]===T_FLOOR&&G.fbm(x,y,5,5)>0.52)G.T[i]=T_GRASS;}
+  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=G.I(x,y);if(G.T[i]===T_FLOOR&&G.fbm(x,y,5,5)>0.57)G.T[i]=T_GRASS;}
   const[sx,sy]=nodes[id(0,sj)];G.disc(sx,sy,3,2.6,(x,y)=>G.set(x,y,T_FLOOR));G.start={x:sx,y:sy};
   // ancient grove
   const x0=2+cs*mc,ax=Math.round((x0+w-3)/2),ay=ri(11,h-12,r);
@@ -427,7 +427,7 @@ _MG_LAY.snow=G=>{
 // VIII. Mire: murky water with many noise islands, boardwalks (bridged by connectivity), ruins, ruined chapel altar.
 _MG_LAY.mire=G=>{
   const{w,h,r}=G;G.border='water';G.minKeep=7;G.tunnel=T_FLOOR;G.blockDens=0.008;G.decoDens=0.04;
-  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const v=G.fbm(x,y,7,1)*0.75+G.vn(x,y,2.5,2)*0.25;if(v>0.55)G.set(x,y,T_FLOOR);else G.wet(x,y);}
+  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const v=G.fbm(x,y,7,1)*0.75+G.vn(x,y,2.5,2)*0.25;if(v>0.52)G.set(x,y,T_FLOOR);else G.wet(x,y);}
   const S=[8,ri(Math.round(h*0.3),Math.round(h*0.7),r)],ax=w-15,ay=ri(18,h-19,r);
   G.disc(S[0],S[1],5.5,4.5,(x,y)=>G.set(x,y,T_FLOOR),0.4);G.disc(ax-2,ay,14,12,(x,y)=>G.set(x,y,T_FLOOR),0.6);
   for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=G.I(x,y);if(G.T[i]!==T_FLOOR)continue;

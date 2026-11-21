@@ -180,7 +180,7 @@ async function startNewGame(slot){
     let id;
     for(;;){const i=await pickStarter(STARTERS);id=STARTERS[clamp(i|0,0,STARTERS.length-1)];
       if(await ask(t('w_starter_q',L2(SPECIES[id]?SPECIES[id].name:id))))break;}
-    const m=createMon(id,5);game.party=[m];game.seen[id]=true;game.caught[id]=true;
+    const m=createMon(id,6);game.party=[m];game.seen[id]=true;game.caught[id]=true;
     _wSfx('ok');
     await say(t('w_starter_ok',monName(m)));
     await say(t('w_pro6'));await say(t('w_pro7'));

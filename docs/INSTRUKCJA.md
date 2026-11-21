@@ -34,7 +34,7 @@ Zobacz też / See also: [Historia / Story](HISTORIA.md) · [Krainy / Realms](KRA
    - **Wybór krainy** — przeniesienie do już odblokowanej krainy (z ostatniego zapisu),
    - **Ustawienia**, **Jak grać**, **Autorzy**, **Pełny ekran**.
 3. **Prolog** — Aldo, ostatni ze Strażników Płomienia, opowiada o Kryształach Światła i Zaćmieniu.
-4. **Wybór towarzysza** — jedno z trzech stworzeń (na poziomie 5):
+4. **Wybór towarzysza** — jedno z trzech stworzeń (na poziomie 6):
 
    | Starter | Typ | Ataki dodatkowe | Charakter |
    |---|---|---|---|
@@ -357,7 +357,7 @@ Po pierwszym uruchomieniu gra działa **offline**.
    - **Realm Select** — jump to an already unlocked realm (from the latest save),
    - **Settings**, **How to Play**, **Credits**, **Fullscreen**.
 3. **Prologue** — Aldo, the last of the Flamekeepers, tells of the Light Crystals and the Eclipse.
-4. **Choose your companion** — one of three creatures (level 5):
+4. **Choose your companion** — one of three creatures (level 6):
 
    | Starter | Type | Extra move type | Style |
    |---|---|---|---|

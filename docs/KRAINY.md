@@ -8,6 +8,26 @@
 <a id="polski"></a>
 ## Polski
 
+### Układ map i areny bossów
+
+Każda kraina ma własny algorytm budowy mapy (od 70×50 do 120×84 kafelków) i ręcznie zaprojektowaną arenę bossa.
+
+| | Kraina | Układ mapy | Arena bossa | Mapa |
+|---|---|---|---|---|
+| I | Łąki Świtu | Otwarte pola, kręta rzeka z mostkami, staw, wioska na starcie | Krąg menhirów o zachodzie słońca | [podgląd](img/map-1.png) |
+| II | Szepczący Las | Labirynt wąskich ścieżek, ukryte polany ze skarbami | Wnętrze pradawnego, pustego drzewa | [podgląd](img/map-2.png) |
+| III | Kryształowe Jaskinie | Naturalne groty, tunele, podziemne jeziorka, ślepe korytarze ze skarbami | Katedra kryształów z tęczowymi promieniami | [podgląd](img/map-3.png) |
+| IV | Wybrzeże Mew | Łańcuch wysp połączonych pomostami, laguny, skały w morzu | Wrak statku nad wirem w czasie burzy | [podgląd](img/map-4.png) |
+| V | Pustynia Słońca | Wydmy, ruiny świątyń z komnatami, oaza, karawanowa droga | Komnata tronowa piramidy (spiralne wejście) | [podgląd](img/map-5.png) |
+| VI | Wulkan Popiołów | Płaskowyże przecięte rzekami lawy, kamienne mosty, spiralna wspinaczka | Krater z jeziorem lawy | [podgląd](img/map-6.png) |
+| VII | Mroźne Szczyty | Pięć tarasów z serpentynami, zamarznięte jeziora, jaskinie w klifach | Lodowy tron z zorzą polarną | [podgląd](img/map-7.png) |
+| VIII | Nawiedzone Mokradła | Wysepki w bagnie, kładki, ruiny kapliczek | Ołtarz w ruinach kaplicy pod szkarłatnym księżycem | [podgląd](img/map-8.png) |
+| IX | Wieża Niebios | Ok. 20 latających wysp na spirali, mosty z chmur | Szczyt wieży w oku burzy | [podgląd](img/map-9.png) |
+| X | Cytadela Zmierzchu | Symetryczny zamek: sale, dziedzińce z fontannami, bramy zygzakiem | Sala tronowa z zaćmionym słońcem; faza II: wymiar światła | [podgląd](img/map-10.png) |
+
+![Areny bossów](img/boss-arenas.png)
+
+
 Dziesięć krain odblokowuje się po kolei: gdy pokonasz strażnika krainy, w jego miejscu otwiera się portal do następnej. Do każdej odblokowanej krainy możesz potem wrócić z kapliczki (**Podróż**) albo z menu tytułowego (**Wybór krainy**). Każda kraina ma 2 trenerów, bossa, kilka kapliczek, skrzynie, sklep, mieszkańców opowiadających legendy oraz własny utwór muzyczny. Mapy są generowane z ustalonego ziarna — każdy gracz widzi te same krainy.
 
 Lewy obrazek to fragment prawdziwej mapy krainy (start gracza, kapliczki, mieszkańcy), prawy — tło walki w tej krainie. Grafiki wygenerowano bezpośrednio kodem gry (`gfx.js`, `mapgen.js`).
@@ -29,7 +49,7 @@ Przegląd wszystkich stworzeń: [img/creatures.png](img/creatures.png) · straż
 
 | | |
 |---|---|
-| **Motyw** | łąka (`meadow`) · mapa 36×26 kafelków · Dostępna od początku gry. |
+| **Motyw** | łąka (`meadow`) · mapa 70×50 kafelków · Dostępna od początku gry. |
 | **Poziomy** | dzikie Poz. 3–5, trenerzy Poz. 5–7, boss Poz. 8 · **zalecana drużyna: Poz. 4–10** |
 | **Dzikie stworzenia** | Pipkit (Zwykły), Fluffet (Zwykły) → Fluffaroo (Poz. 18), Buzzle (Wolt) → Voltbuzz (Poz. 20), Sproutle (Roślina), Batwing (Cień) |
 | **Trenerzy** | **Młody Kuba** — Pipkit 5, Buzzle 6 · nagroda 225 zł<br>**Zielarka Ola** — Sproutle 6, Fluffet 6, Pipkit 7 · nagroda 260 zł |
@@ -54,7 +74,7 @@ Gęsty, wilgotny bór, w którym między pniami unoszą się świetliki. Ścież
 
 | | |
 |---|---|
-| **Motyw** | las (`forest`) · mapa 39×28 kafelków · Odblokowanie: pokonaj strażnika krainy I. |
+| **Motyw** | las (`forest`) · mapa 76×54 kafelków · Odblokowanie: pokonaj strażnika krainy I. |
 | **Poziomy** | dzikie Poz. 7–10, trenerzy Poz. 10–12, boss Poz. 13 · **zalecana drużyna: Poz. 8–15** |
 | **Dzikie stworzenia** | Sproutle (Roślina), Mossnake (Roślina), Shroomy (Roślina), Buzzle (Wolt) → Voltbuzz (Poz. 20), Fluffet (Zwykły) → Fluffaroo (Poz. 18), Batwing (Cień) |
 | **Trenerzy** | **Leśniczy Marek** — Mossnake 10, Buzzle 11 · nagroda 400 zł<br>**Grzybiarka Basia** — Shroomy 11, Sproutle 11, Batwing 12 · nagroda 435 zł |
@@ -79,7 +99,7 @@ Ciemne groty o fioletowych ścianach, w których pulsują chore kryształy. Mapa
 
 | | |
 |---|---|
-| **Motyw** | jaskinia (`cave`) · mapa 42×30 kafelków · Odblokowanie: pokonaj strażnika krainy II. |
+| **Motyw** | jaskinia (`cave`) · mapa 81×58 kafelków · Odblokowanie: pokonaj strażnika krainy II. |
 | **Poziomy** | dzikie Poz. 11–14, trenerzy Poz. 14–16, boss Poz. 17 · **zalecana drużyna: Poz. 12–19** |
 | **Dzikie stworzenia** | Gemmite (Ziemia), Rocklet (Ziemia) → Bouldron (Poz. 25), Batwing (Cień), Magmole (Ogień), Shroomy (Roślina) |
 | **Trenerzy** | **Górnik Staszek** — Rocklet 14, Gemmite 15 · nagroda 540 zł<br>**Grotołazka Ewa** — Batwing 15, Magmole 15, Gemmite 16 · nagroda 575 zł |
@@ -104,7 +124,7 @@ Słoneczne plaże z muszlami, otoczone wodą zamiast ścian. Piaszczyste wysepki
 
 | | |
 |---|---|
-| **Motyw** | wybrzeże (`coast`) · mapa 45×32 kafelków · Odblokowanie: pokonaj strażnika krainy III. |
+| **Motyw** | wybrzeże (`coast`) · mapa 87×61 kafelków · Odblokowanie: pokonaj strażnika krainy III. |
 | **Poziomy** | dzikie Poz. 15–18, trenerzy Poz. 18–20, boss Poz. 21 · **zalecana drużyna: Poz. 16–23** |
 | **Dzikie stworzenia** | Crabbit (Woda), Gullip (Woda), Shellby (Woda), Voltbuzz (Wolt), Fluffaroo (Zwykły) |
 | **Trenerzy** | **Rybak Zbyszek** — Crabbit 18, Shellby 19 · nagroda 680 zł<br>**Żeglarka Magda** — Gullip 19, Voltbuzz 19, Crabbit 20 · nagroda 715 zł |
@@ -129,7 +149,7 @@ Rozgrzane złote piaski, skalne ściany, kaktusy i wybielone czaszki. W drżący
 
 | | |
 |---|---|
-| **Motyw** | pustynia (`desert`) · mapa 48×34 kafelków · Odblokowanie: pokonaj strażnika krainy IV. |
+| **Motyw** | pustynia (`desert`) · mapa 92×65 kafelków · Odblokowanie: pokonaj strażnika krainy IV. |
 | **Poziomy** | dzikie Poz. 19–23, trenerzy Poz. 23–25, boss Poz. 26 · **zalecana drużyna: Poz. 20–28** |
 | **Dzikie stworzenia** | Sandvip (Ziemia), Sunbeak (Światło), Cactoon (Roślina), Rocklet (Ziemia) → Bouldron (Poz. 25), Bouldron (Ziemia) |
 | **Trenerzy** | **Wędrowiec Józef** — Sandvip 23, Cactoon 24 · nagroda 855 zł<br>**Archeolożka Iza** — Sunbeak 24, Bouldron 24, Sandvip 25 · nagroda 890 zł |
@@ -154,7 +174,7 @@ Popękana bazaltowa ziemia, rzeki lawy i niebo zasnute popiołem, z którego syp
 
 | | |
 |---|---|
-| **Motyw** | wulkan (`volcano`) · mapa 52×36 kafelków · Odblokowanie: pokonaj strażnika krainy V. |
+| **Motyw** | wulkan (`volcano`) · mapa 98×69 kafelków · Odblokowanie: pokonaj strażnika krainy V. |
 | **Poziomy** | dzikie Poz. 24–28, trenerzy Poz. 28–30, boss Poz. 31 · **zalecana drużyna: Poz. 25–33** |
 | **Dzikie stworzenia** | Magmole (Ogień), Cindrake (Ogień), Ashling (Ogień), Bouldron (Ziemia), Gemmite (Ziemia) |
 | **Trenerzy** | **Kowal Bogdan** — Magmole 28, Bouldron 29 · nagroda 1030 zł<br>**Ogniomistrzyni Kasia** — Cindrake 29, Ashling 29, Magmole 30 · nagroda 1065 zł |
@@ -179,7 +199,7 @@ Zaśnieżone przełęcze otoczone ścianami sosen, z zamarzniętymi głazami i n
 
 | | |
 |---|---|
-| **Motyw** | śnieg (`snow`) · mapa 55×38 kafelków · Odblokowanie: pokonaj strażnika krainy VI. |
+| **Motyw** | śnieg (`snow`) · mapa 103×73 kafelków · Odblokowanie: pokonaj strażnika krainy VI. |
 | **Poziomy** | dzikie Poz. 29–33, trenerzy Poz. 33–35, boss Poz. 36 · **zalecana drużyna: Poz. 30–38** |
 | **Dzikie stworzenia** | Frostel (Lód), Snowpaw (Lód), Glacieron (Lód), Shellby (Woda), Haloth (Światło) |
 | **Trenerzy** | **Alpinista Wojtek** — Snowpaw 33, Frostel 34 · nagroda 1205 zł<br>**Pustelniczka Hania** — Glacieron 34, Haloth 34, Shellby 35 · nagroda 1240 zł |
@@ -204,7 +224,7 @@ Czarna woda, martwe drzewa, mgła snująca się nad bagnem, świece i czaszki. K
 
 | | |
 |---|---|
-| **Motyw** | mokradła (`mire`) · mapa 58×40 kafelków · Odblokowanie: pokonaj strażnika krainy VII. |
+| **Motyw** | mokradła (`mire`) · mapa 109×76 kafelków · Odblokowanie: pokonaj strażnika krainy VII. |
 | **Poziomy** | dzikie Poz. 34–38, trenerzy Poz. 38–40, boss Poz. 41 · **zalecana drużyna: Poz. 35–43** |
 | **Dzikie stworzenia** | Wispyre (Cień), Ghoulip (Cień), Bogtoad (Woda), Mossnake (Roślina), Shroomy (Roślina), Duskknight (Cień) |
 | **Trenerzy** | **Medium Lucjan** — Wispyre 38, Ghoulip 39 · nagroda 1380 zł<br>**Wiedźma Jadwiga** — Bogtoad 39, Shroomy 39, Duskknight 40 · nagroda 1415 zł |
@@ -229,7 +249,7 @@ Białe kamienne wyspy i złote mosty zawieszone nad otchłanią chmur, wśród m
 
 | | |
 |---|---|
-| **Motyw** | niebo (`sky`) · mapa 61×42 kafelków · Odblokowanie: pokonaj strażnika krainy VIII. |
+| **Motyw** | niebo (`sky`) · mapa 114×80 kafelków · Odblokowanie: pokonaj strażnika krainy VIII. |
 | **Poziomy** | dzikie Poz. 39–43, trenerzy Poz. 43–45, boss Poz. 46 · **zalecana drużyna: Poz. 40–48** |
 | **Dzikie stworzenia** | Zephyra (Światło), Stormane (Wolt), Nimbo (Woda), Gullip (Woda), Voltbuzz (Wolt), Haloth (Światło) |
 | **Trenerzy** | **Lotnik Tadeusz** — Zephyra 43, Gullip 44 · nagroda 1555 zł<br>**Burzowa Zosia** — Stormane 44, Nimbo 44, Voltbuzz 45 · nagroda 1590 zł |
@@ -254,7 +274,7 @@ Czarne ceglane mury, korytarze oświetlone świecami, czaszki i gwiazdy na posad
 
 | | |
 |---|---|
-| **Motyw** | cytadela (`citadel`) · mapa 64×44 kafelków · Odblokowanie: pokonaj strażnika krainy IX. |
+| **Motyw** | cytadela (`citadel`) · mapa 120×84 kafelków · Odblokowanie: pokonaj strażnika krainy IX. |
 | **Poziomy** | dzikie Poz. 44–48, trenerzy Poz. 48–50, boss Poz. 52/54 · **zalecana drużyna: Poz. 45–54** |
 | **Dzikie stworzenia** | Duskknight (Cień), Haloth (Światło), Voidling (Cień), Cindrake (Ogień), Glacieron (Lód), Stormane (Wolt) |
 | **Trenerzy** | **Rycerz Cienia Roch** — Duskknight 48, Voidling 49 · nagroda 1730 zł<br>**Upadła Strażniczka Wanda** — Haloth 49, Cindrake 49, Glacieron 50 · nagroda 1765 zł |
@@ -271,6 +291,26 @@ Czarne ceglane mury, korytarze oświetlone świecami, czaszki i gwiazdy na posad
 
 <a id="english"></a>
 ## English
+
+### Map layouts and boss arenas
+
+Every realm has its own map-building algorithm (from 70×50 up to 120×84 tiles) and a hand-crafted boss arena.
+
+| | Realm | Map layout | Boss arena | Map |
+|---|---|---|---|---|
+| I | Łąki Świtu | Open fields, a winding river with bridges, a pond, a starting village | Stone circle at sunset | [preview](img/map-1.png) |
+| II | Szepczący Las | A maze of narrow trails, hidden treasure glades | Inside an ancient hollow tree | [preview](img/map-2.png) |
+| III | Kryształowe Jaskinie | Natural caverns, tunnels, underground pools, treasure dead ends | Crystal cathedral with prismatic beams | [preview](img/map-3.png) |
+| IV | Wybrzeże Mew | A chain of islands linked by piers, lagoons, sea rocks | Shipwreck above a whirlpool in a storm | [preview](img/map-4.png) |
+| V | Pustynia Słońca | Dunes, temple ruins with chambers, an oasis, a caravan road | Pyramid throne chamber (spiral entrance) | [preview](img/map-5.png) |
+| VI | Wulkan Popiołów | Plateaus split by lava rivers, stone bridges, a spiral climb | Crater with a lava lake | [preview](img/map-6.png) |
+| VII | Mroźne Szczyty | Five terraces with switchbacks, frozen lakes, cliff caves | Frozen throne under the aurora | [preview](img/map-7.png) |
+| VIII | Nawiedzone Mokradła | Swamp islets, boardwalks, ruined shrines | Altar in a ruined chapel under a crimson moon | [preview](img/map-8.png) |
+| IX | Wieża Niebios | About 20 floating islands on a spiral, cloud bridges | Spire top in the eye of the storm | [preview](img/map-9.png) |
+| X | Cytadela Zmierzchu | A symmetrical castle: halls, fountain courtyards, zig-zag gates | Throne room with an eclipsed sun; phase II: a realm of light | [preview](img/map-10.png) |
+
+![Boss arenas](img/boss-arenas.png)
+
 
 The ten realms unlock one after another: when you defeat a realm's guardian, a portal to the next realm opens where it stood. You can return to any unlocked realm from a shrine (**Travel**) or from the title menu (**Realm select**). Every realm has 2 trainers, a boss, several shrines, chests, a shop, residents who tell legends, and its own music track. Maps are generated from a fixed seed — every player sees the same realms.
 
@@ -293,7 +333,7 @@ Gentle flower meadows with petals drifting on the wind. Wide sandy paths, patche
 
 | | |
 |---|---|
-| **Theme** | meadow (`meadow`) · map 36×26 tiles · Available from the start. |
+| **Theme** | meadow (`meadow`) · map 70×50 tiles · Available from the start. |
 | **Levels** | wild Lv 3–5, trainers Lv 5–7, boss Lv 8 · **recommended team: Lv 4–10** |
 | **Wild creatures** | Pipkit (Normal), Fluffet (Normal) → Fluffaroo (Lv 18), Buzzle (Volt) → Voltbuzz (Lv 20), Sproutle (Grass), Batwing (Shadow) |
 | **Trainers** | **Youngster Kuba** — Pipkit 5, Buzzle 6 · reward 225 G<br>**Herbalist Ola** — Sproutle 6, Fluffet 6, Pipkit 7 · reward 260 G |
@@ -318,7 +358,7 @@ A dense, damp forest where fireflies drift between the trunks. Paths wind betwee
 
 | | |
 |---|---|
-| **Theme** | forest (`forest`) · map 39×28 tiles · Unlock: defeat the guardian of realm I. |
+| **Theme** | forest (`forest`) · map 76×54 tiles · Unlock: defeat the guardian of realm I. |
 | **Levels** | wild Lv 7–10, trainers Lv 10–12, boss Lv 13 · **recommended team: Lv 8–15** |
 | **Wild creatures** | Sproutle (Grass), Mossnake (Grass), Shroomy (Grass), Buzzle (Volt) → Voltbuzz (Lv 20), Fluffet (Normal) → Fluffaroo (Lv 18), Batwing (Shadow) |
 | **Trainers** | **Ranger Marek** — Mossnake 10, Buzzle 11 · reward 400 G<br>**Forager Basia** — Shroomy 11, Sproutle 11, Batwing 12 · reward 435 G |
@@ -343,7 +383,7 @@ Dark grottoes with violet walls where sickly crystals pulse. The map is darkened
 
 | | |
 |---|---|
-| **Theme** | cave (`cave`) · map 42×30 tiles · Unlock: defeat the guardian of realm II. |
+| **Theme** | cave (`cave`) · map 81×58 tiles · Unlock: defeat the guardian of realm II. |
 | **Levels** | wild Lv 11–14, trainers Lv 14–16, boss Lv 17 · **recommended team: Lv 12–19** |
 | **Wild creatures** | Gemmite (Earth), Rocklet (Earth) → Bouldron (Lv 25), Batwing (Shadow), Magmole (Fire), Shroomy (Grass) |
 | **Trainers** | **Miner Staszek** — Rocklet 14, Gemmite 15 · reward 540 G<br>**Spelunker Ewa** — Batwing 15, Magmole 15, Gemmite 16 · reward 575 G |
@@ -368,7 +408,7 @@ Sunny beaches strewn with shells, bounded by water instead of walls. Sandy islet
 
 | | |
 |---|---|
-| **Theme** | coast (`coast`) · map 45×32 tiles · Unlock: defeat the guardian of realm III. |
+| **Theme** | coast (`coast`) · map 87×61 tiles · Unlock: defeat the guardian of realm III. |
 | **Levels** | wild Lv 15–18, trainers Lv 18–20, boss Lv 21 · **recommended team: Lv 16–23** |
 | **Wild creatures** | Crabbit (Water), Gullip (Water), Shellby (Water), Voltbuzz (Volt), Fluffaroo (Normal) |
 | **Trainers** | **Fisherman Zbyszek** — Crabbit 18, Shellby 19 · reward 680 G<br>**Sailor Magda** — Gullip 19, Voltbuzz 19, Crabbit 20 · reward 715 G |
@@ -393,7 +433,7 @@ Scorching golden sands, rock walls, cacti and bleached skulls. Ruins of ancient 
 
 | | |
 |---|---|
-| **Theme** | desert (`desert`) · map 48×34 tiles · Unlock: defeat the guardian of realm IV. |
+| **Theme** | desert (`desert`) · map 92×65 tiles · Unlock: defeat the guardian of realm IV. |
 | **Levels** | wild Lv 19–23, trainers Lv 23–25, boss Lv 26 · **recommended team: Lv 20–28** |
 | **Wild creatures** | Sandvip (Earth), Sunbeak (Light), Cactoon (Grass), Rocklet (Earth) → Bouldron (Lv 25), Bouldron (Earth) |
 | **Trainers** | **Wanderer Józef** — Sandvip 23, Cactoon 24 · reward 855 G<br>**Archaeologist Iza** — Sunbeak 24, Bouldron 24, Sandvip 25 · reward 890 G |
@@ -418,7 +458,7 @@ Cracked basalt ground, rivers of lava and an ash-veiled sky raining embers. Wall
 
 | | |
 |---|---|
-| **Theme** | volcano (`volcano`) · map 52×36 tiles · Unlock: defeat the guardian of realm V. |
+| **Theme** | volcano (`volcano`) · map 98×69 tiles · Unlock: defeat the guardian of realm V. |
 | **Levels** | wild Lv 24–28, trainers Lv 28–30, boss Lv 31 · **recommended team: Lv 25–33** |
 | **Wild creatures** | Magmole (Fire), Cindrake (Fire), Ashling (Fire), Bouldron (Earth), Gemmite (Earth) |
 | **Trainers** | **Smith Bogdan** — Magmole 28, Bouldron 29 · reward 1030 G<br>**Firedancer Kasia** — Cindrake 29, Ashling 29, Magmole 30 · reward 1065 G |
@@ -443,7 +483,7 @@ Snowy passes walled by pine forests, with frozen boulders and endless falling sn
 
 | | |
 |---|---|
-| **Theme** | snow (`snow`) · map 55×38 tiles · Unlock: defeat the guardian of realm VI. |
+| **Theme** | snow (`snow`) · map 103×73 tiles · Unlock: defeat the guardian of realm VI. |
 | **Levels** | wild Lv 29–33, trainers Lv 33–35, boss Lv 36 · **recommended team: Lv 30–38** |
 | **Wild creatures** | Frostel (Ice), Snowpaw (Ice), Glacieron (Ice), Shellby (Water), Haloth (Light) |
 | **Trainers** | **Climber Wojtek** — Snowpaw 33, Frostel 34 · reward 1205 G<br>**Hermit Hania** — Glacieron 34, Haloth 34, Shellby 35 · reward 1240 G |
@@ -468,7 +508,7 @@ Black water, dead trees, fog crawling over the bog, candles and skulls. The real
 
 | | |
 |---|---|
-| **Theme** | mire (`mire`) · map 58×40 tiles · Unlock: defeat the guardian of realm VII. |
+| **Theme** | mire (`mire`) · map 109×76 tiles · Unlock: defeat the guardian of realm VII. |
 | **Levels** | wild Lv 34–38, trainers Lv 38–40, boss Lv 41 · **recommended team: Lv 35–43** |
 | **Wild creatures** | Wispyre (Shadow), Ghoulip (Shadow), Bogtoad (Water), Mossnake (Grass), Shroomy (Grass), Duskknight (Shadow) |
 | **Trainers** | **Medium Lucjan** — Wispyre 38, Ghoulip 39 · reward 1380 G<br>**Witch Jadwiga** — Bogtoad 39, Shroomy 39, Duskknight 40 · reward 1415 G |
@@ -493,7 +533,7 @@ White stone islands and golden bridges suspended above an abyss of clouds among 
 
 | | |
 |---|---|
-| **Theme** | sky (`sky`) · map 61×42 tiles · Unlock: defeat the guardian of realm VIII. |
+| **Theme** | sky (`sky`) · map 114×80 tiles · Unlock: defeat the guardian of realm VIII. |
 | **Levels** | wild Lv 39–43, trainers Lv 43–45, boss Lv 46 · **recommended team: Lv 40–48** |
 | **Wild creatures** | Zephyra (Light), Stormane (Volt), Nimbo (Water), Gullip (Water), Voltbuzz (Volt), Haloth (Light) |
 | **Trainers** | **Aviator Tadeusz** — Zephyra 43, Gullip 44 · reward 1555 G<br>**Stormcaller Zosia** — Stormane 44, Nimbo 44, Voltbuzz 45 · reward 1590 G |
@@ -518,7 +558,7 @@ Black brick walls, candlelit corridors, skulls and stars on the floor. The Citad
 
 | | |
 |---|---|
-| **Theme** | citadel (`citadel`) · map 64×44 tiles · Unlock: defeat the guardian of realm IX. |
+| **Theme** | citadel (`citadel`) · map 120×84 tiles · Unlock: defeat the guardian of realm IX. |
 | **Levels** | wild Lv 44–48, trainers Lv 48–50, boss Lv 52/54 · **recommended team: Lv 45–54** |
 | **Wild creatures** | Duskknight (Shadow), Haloth (Light), Voidling (Shadow), Cindrake (Fire), Glacieron (Ice), Stormane (Volt) |
 | **Trainers** | **Shadow Knight Roch** — Duskknight 48, Voidling 49 · reward 1730 G<br>**Fallen Warden Wanda** — Haloth 49, Cindrake 49, Glacieron 50 · reward 1765 G |

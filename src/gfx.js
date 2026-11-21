@@ -444,12 +444,36 @@ function _gxShrineBase(g,ox,oy,th){
   const st=[[2,9],[4,7],[7,6],[10,7],[12,9],[11,12],[8,13],[4,12]];
   for(const[sx,sy]of st){d(sx-1,sy-1,'#3a3640',3,3);d(sx-1,sy-1,'#a8a4a8',2,1);d(sx,sy,'#787078');}
 }
+const _gxVarC={};
+function _gxVar(th,k){const id=(th.wall||'')+(th.floor||'')+k;if(_gxVarC[id])return _gxVarC[id];let v;
+  if(k==='water')v=Object.assign({},th,{wall:'water',wallA:'#3a86d0',wallB:'#2a64a8'});
+  else if(k==='ruin')v=Object.assign({},th,{wall:'brick',wallA:th.wall==='brick'?th.wallA:'#b49a6a',wallB:th.wall==='brick'?th.wallB:'#6a5638'});
+  else if(k==='rock')v=Object.assign({},th,{wall:'rock',wallA:'#8a8a9a',wallB:'#4a4a5a'});
+  else v=Object.assign({},th,{floor:'#cfe8fa',floor2:'#e8f6ff',grass:'#bcd8f0',grass2:'#9cbce0'});
+  return _gxVarC[id]=v;}
+function _gxLava(g,ox,oy,r){_gxP(g,ox,oy,'#e0501a',16,16);for(let i=0;i<6;i++)_gxP(g,ox+ri(0,13,r),oy+ri(0,14,r),'#ffb03a',ri(2,4,r),ri(1,2,r));
+  for(let i=0;i<3;i++)_gxP(g,ox+ri(0,12,r),oy+ri(0,13,r),'#5a1a0c',ri(2,5,r),1);_gxP(g,ox+ri(2,12,r),oy+ri(2,12,r),'#fff0a0',1,1);}
+function _gxBridge(g,ox,oy,map,x,y,med,r,th){
+  if(med==='lava')_gxLava(g,ox,oy,r);else if(med==='water')_gxP(g,ox,oy,'#3a86d0',16,16);else{_gxP(g,ox,oy,th.voidCol||'#0d1838',16,16);}
+  const hz=passable(_gxAt(map,x-1,y))||passable(_gxAt(map,x+1,y)),vt=passable(_gxAt(map,x,y-1))||passable(_gxAt(map,x,y+1));
+  const horiz=hz&&!(vt&&!hz);
+  if(med==='void'){_gxP(g,ox,oy+2,'#f4f8ff',16,12);_gxP(g,ox,oy+12,'#c8d4f0',16,2);for(let i=0;i<4;i++)_gxP(g,ox+ri(0,13,r),oy+ri(3,10,r),'#ffffff',3,2);return;}
+  const wood=med==='lava'?'#6a6470':'#a8784a',dk=shade(wood,-0.35),lt=shade(wood,0.25);
+  if(horiz){_gxP(g,ox,oy+3,dk,16,10);for(let i=0;i<16;i+=4){_gxP(g,ox+i,oy+3,wood,3,10);_gxP(g,ox+i,oy+3,lt,3,1);}_gxP(g,ox,oy+2,dk,16,1);_gxP(g,ox,oy+13,dk,16,1);}
+  else{_gxP(g,ox+3,oy,dk,10,16);for(let i=0;i<16;i+=4){_gxP(g,ox+3,oy+i,wood,10,3);_gxP(g,ox+3,oy+i,lt,10,1);}_gxP(g,ox+2,oy,dk,1,16);_gxP(g,ox+13,oy,dk,1,16);}}
 function _gxTile(g,map,th,x,y,key){
   const ox=x*TS,oy=y*TS;
   const r=RNG(((map.seed||1)*2654435761)^(x*73856093)^(y*19349663));
   r();
   const t=map.tiles[y*map.w+x];
   g.save();g.beginPath();g.rect(ox,oy,16,16);g.clip();
+  const _i=y*map.w+x,_m=(f)=>map[f]&&map[f][_i];
+  if(t===T_WALL&&_m('lava')){_gxLava(g,ox,oy,r);g.restore();return;}
+  if(t===T_WALL&&_m('water')){_gxWall(g,ox,oy,_gxVar(th,'water'),r,map,x,y,key);g.restore();return;}
+  if(t===T_WALL&&_m('ruin')){_gxWall(g,ox,oy,_gxVar(th,'ruin'),r,map,x,y,key);g.restore();return;}
+  if(t===T_WALL&&_m('rock')){_gxWall(g,ox,oy,_gxVar(th,'rock'),r,map,x,y,key);g.restore();return;}
+  if(t===T_PATH&&_m('bridge')){_gxBridge(g,ox,oy,map,x,y,_m('lava')?'lava':_m('water')?'water':'void',r,th);g.restore();return;}
+  if(t!==T_WALL&&_m('ice'))th=_gxVar(th,'ice');
   switch(t){
     case T_WALL:_gxWall(g,ox,oy,th,r,map,x,y,key);break;
     case T_PATH:_gxPath(g,ox,oy,th,r,map,x,y);break;
