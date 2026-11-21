@@ -2,7 +2,7 @@
 """Skleja src/ w jeden plik web/index.html."""
 import os
 ROOT = os.path.dirname(os.path.abspath(__file__))
-ORDER = ['core', 'data', 'gfx', 'mapgen', 'audio', 'input', 'ui', 'party', 'battle', 'world', 'menus', 'main']
+ORDER = ['core', 'data', 'gfx', 'arena', 'mapgen', 'audio', 'input', 'ui', 'party', 'battle', 'world', 'menus', 'main']
 shell = open(os.path.join(ROOT, 'src', 'shell.html'), encoding='utf-8').read()
 parts = []
 for n in ORDER:

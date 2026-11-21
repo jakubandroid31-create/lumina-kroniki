@@ -337,4 +337,4 @@ const LEVELS=[
    ['Ostatnia kapliczka płonie tuż przed tronem. Odpocznij, Strażniku. Świat na ciebie czeka.','The last shrine burns just before the throne. Rest, Warden. The world is waiting for you.']],
   music:'lvl10'}
 ];
-LEVELS.forEach((L,i)=>{L.size=[36+Math.round(28*i/9),26+2*i];});
+LEVELS.forEach((L,i)=>{L.size=[70+Math.round(50*i/9),50+Math.round(34*i/9)];});
