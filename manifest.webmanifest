@@ -1,0 +1,19 @@
+{
+  "name": "LUMINA: Kroniki Dziesięciu Krain",
+  "short_name": "Lumina",
+  "description": "JRPG pixel-art: łap stworzenia, pokonuj trenerów i bossów w dziesięciu krainach. / Pixel-art JRPG: catch creatures and defeat trainers and bosses across ten realms.",
+  "lang": "pl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#04070f",
+  "theme_color": "#0a1230",
+  "categories": ["games"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
