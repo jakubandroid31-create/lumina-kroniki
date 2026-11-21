@@ -1,0 +1,77 @@
+name: Android APK
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Budowanie web/index.html z src/
+        run: python3 build.py
+
+      - name: Zależności
+        run: npm install
+
+      - name: Projekt Androida
+        run: npx cap add android
+
+      - name: Ikona, orientacja pozioma, pełny ekran
+        run: |
+          npx capacitor-assets generate --android || echo "Pominięto generowanie ikon"
+          node scripts/patch-android.js
+
+      - name: Synchronizacja plików gry
+        run: npx cap sync android
+
+      - name: Budowanie APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Zmiana nazwy pliku
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk lumina-kroniki.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lumina-kroniki-apk
+          path: lumina-kroniki.apk
+
+      - name: Publiczne wydanie z APK (do pobrania bez logowania)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'najnowsza' }}
+          name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'Najnowsza wersja' }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          body: |
+            LUMINA: Kroniki Dziesięciu Krain – aplikacja na Androida.
+            Pobierz plik lumina-kroniki.apk, otwórz go na telefonie i zezwól na instalację z tego źródła.
+            Gra w przeglądarce: https://jakubandroid31-create.github.io/lumina-kroniki/
+
+            LUMINA: Chronicles of the Ten Realms – Android app.
+            Download lumina-kroniki.apk, open it on your phone and allow installing from this source.
+            Play in the browser: https://jakubandroid31-create.github.io/lumina-kroniki/
+          files: lumina-kroniki.apk

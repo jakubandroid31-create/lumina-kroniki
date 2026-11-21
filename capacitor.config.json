@@ -1,0 +1,9 @@
+{
+  "appId": "pl.luminakroniki.gra",
+  "appName": "Lumina",
+  "webDir": "web",
+  "backgroundColor": "#04070f",
+  "android": {
+    "allowMixedContent": false
+  }
+}

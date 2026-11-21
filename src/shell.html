@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>LUMINA: Kroniki Dziesięciu Krain</title>
+<meta name="description" content="JRPG pixel-art: 10 krain, łapanie stworzeń, walki turowe. PL/EN. Przeglądarka, Android, iOS.">
+<meta name="theme-color" content="#0a1230">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lumina">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+#wrap{position:fixed;inset:0;overflow:hidden}
+#c{position:absolute;image-rendering:pixelated;image-rendering:crisp-edges;background:#000;touch-action:none;outline:none}
+#scan{position:absolute;pointer-events:none;display:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.22) 0,rgba(0,0,0,.22) 1px,transparent 1px,transparent 3px)}
+#touch{position:absolute;inset:0;pointer-events:none;z-index:5}
+#ovroot{position:absolute;inset:0;pointer-events:none;z-index:10}
+#ovroot>*{pointer-events:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<canvas id="c" width="480" height="270" tabindex="0"></canvas>
+<div id="scan"></div>
+<div id="touch"></div>
+<div id="ovroot"></div>
+</div>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>

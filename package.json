@@ -1,0 +1,22 @@
+{
+  "name": "lumina-kroniki",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LUMINA: Kroniki Dziesięciu Krain – JRPG pixel-art z łapaniem stworzeń. Wersja www i aplikacja na Androida (Capacitor).",
+  "scripts": {
+    "build": "python3 build.py",
+    "android:init": "cap add android && npm run android:patch",
+    "android:patch": "capacitor-assets generate --android || true && node scripts/patch-android.js",
+    "android:sync": "python3 build.py && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "python3 build.py && cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2"
+  }
+}

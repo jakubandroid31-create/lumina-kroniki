@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUMINA: Kroniki Dziesięciu Krain — zagraj lub pobierz</title>
+<meta name="description" content="JRPG pixel-art: łap stworzenia w dziesięciu krainach. Graj w przeglądarce albo pobierz na Androida.">
+<meta name="theme-color" content="#0a1230">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --gold:#f3d27a; --text:#e8f0ff; --muted:#9fb3d6; --line:rgba(190,215,255,.55); --line2:rgba(190,215,255,.22); }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; color:var(--text); font:18px/1.55 'EB Garamond',Georgia,serif;
+         background:radial-gradient(ellipse at 50% 14%,#1b2f6b 0%,#0a1230 48%,#04070f 100%) fixed #04070f; }
+  body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.8;
+         background-image:
+           radial-gradient(1.5px 1.5px at 12% 18%,#fff 50%,transparent 51%),
+           radial-gradient(1px 1px at 27% 42%,#cfe0ff 50%,transparent 51%),
+           radial-gradient(1.5px 1.5px at 44% 9%,#ffe7a8 50%,transparent 51%),
+           radial-gradient(1px 1px at 63% 31%,#fff 50%,transparent 51%),
+           radial-gradient(1.5px 1.5px at 81% 14%,#cfe0ff 50%,transparent 51%),
+           radial-gradient(1px 1px at 91% 47%,#ffe7a8 50%,transparent 51%),
+           radial-gradient(1px 1px at 7% 63%,#fff 50%,transparent 51%),
+           radial-gradient(1.5px 1.5px at 35% 77%,#cfe0ff 50%,transparent 51%),
+           radial-gradient(1px 1px at 72% 69%,#fff 50%,transparent 51%),
+           radial-gradient(1.5px 1.5px at 55% 92%,#ffe7a8 50%,transparent 51%),
+           radial-gradient(1px 1px at 18% 88%,#cfe0ff 50%,transparent 51%),
+           radial-gradient(1px 1px at 86% 82%,#fff 50%,transparent 51%); }
+  main { position:relative; max-width:820px; margin:0 auto; padding:44px 20px 64px; }
+  .emblem { display:block; width:96px; height:120px; margin:0 auto 16px;
+         filter:drop-shadow(0 0 10px rgba(255,214,110,.7)) drop-shadow(0 0 34px rgba(110,160,255,.65)); }
+  h1 { font-family:Cinzel,Georgia,serif; font-weight:700; text-align:center; font-size:clamp(34px,8vw,60px); margin:0;
+       letter-spacing:.16em; color:var(--gold); text-shadow:0 0 22px rgba(243,210,122,.35), 0 2px 0 #0a1230; }
+  .kr { text-align:center; font-family:Cinzel,Georgia,serif; letter-spacing:.14em; text-transform:uppercase; font-size:15px; color:#cfe0ff; margin:4px 0 0; }
+  .sub { text-align:center; color:var(--muted); margin:8px 0 28px; }
+  .lang { text-align:center; margin-bottom:26px; }
+  .lang button { font:inherit; color:var(--muted); background:rgba(10,18,48,.6); border:1px solid var(--line2); border-radius:6px; padding:4px 14px; cursor:pointer; }
+  .lang button.on { color:var(--gold); border-color:var(--gold); }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+  .card { background:linear-gradient(180deg,rgba(32,58,128,.78) 0%,rgba(14,26,66,.84) 55%,rgba(8,14,38,.9) 100%);
+          border:1px solid var(--line); border-radius:10px; padding:22px 20px; display:flex; flex-direction:column; gap:10px;
+          box-shadow:inset 0 0 0 1px rgba(10,18,48,.9), inset 0 1px 0 rgba(255,255,255,.12), 0 8px 24px rgba(0,0,0,.45); }
+  .card h2 { font-family:Cinzel,Georgia,serif; font-size:19px; margin:0; color:var(--gold); letter-spacing:.04em; }
+  .card p { margin:0; color:var(--muted); font-size:16px; flex:1; }
+  .btn { display:block; text-align:center; text-decoration:none; font-family:Cinzel,Georgia,serif; font-weight:700;
+         color:#0a1230; background:linear-gradient(#ffe08a,#d9a93f); padding:12px 14px; border:1px solid rgba(255,240,190,.7);
+         border-radius:8px; letter-spacing:.06em; box-shadow:0 2px 0 #6b4f16, 0 0 14px rgba(243,210,122,.25); }
+  .btn:hover { filter:brightness(1.08); }
+  ol, ul { margin:6px 0 0; padding-left:20px; color:var(--muted); font-size:16px; }
+  .wide { margin-top:16px; }
+  .feat { columns:2 240px; column-gap:28px; }
+  .feat li { break-inside:avoid; margin-bottom:4px; }
+  .feat li::marker, .realms li::marker { color:var(--gold); }
+  .realms { columns:2 220px; column-gap:28px; list-style:upper-roman; padding-left:34px; }
+  .realms li { break-inside:avoid; color:var(--text); }
+  footer { margin-top:34px; text-align:center; color:#6f84ad; font-size:15px; }
+  footer a { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <svg class="emblem" viewBox="0 0 16 20" shape-rendering="crispEdges" aria-hidden="true">
+    <polygon points="8,0 14,6 14,13 8,20 2,13 2,6" fill="#6b4316"/>
+    <polygon points="8,1 13,6 13,13 8,19 3,13 3,6" fill="#f0bd4c"/>
+    <polygon points="8,1 8,19 3,13 3,6" fill="#ffe08a"/>
+    <polygon points="8,1 5.5,3.5 5.5,13 8,16" fill="#fff4cc"/>
+    <polygon points="13,6 13,13 8,19 10.5,13 10.5,6" fill="#d9a93f"/>
+    <polygon points="3,13 13,13 8,19" fill="#c88f2c" opacity=".55"/>
+    <rect x="4" y="7" width="1" height="2" fill="#fff"/>
+  </svg>
+  <h1>LUMINA</h1>
+  <p class="kr" data-pl="Kroniki Dziesięciu Krain" data-en="Chronicles of the Ten Realms">Kroniki Dziesięciu Krain</p>
+  <p class="sub" data-pl="JRPG pixel-art · łap stworzenia · dziesięć krain · trenerzy i bossowie" data-en="Pixel-art JRPG · catch creatures · ten realms · trainers and bosses">JRPG pixel-art · łap stworzenia · dziesięć krain · trenerzy i bossowie</p>
+  <div class="lang"><button id="pl" class="on">Polski</button> <button id="en">English</button></div>
+
+  <div class="grid">
+    <section class="card">
+      <h2 data-pl="Zagraj w przeglądarce" data-en="Play in your browser">Zagraj w przeglądarce</h2>
+      <p data-pl="Komputer, telefon lub tablet. Bez instalacji. Działa z klawiaturą, myszą, padem i dotykiem." data-en="Computer, phone or tablet. Nothing to install. Works with keyboard, mouse, gamepad and touch.">Komputer, telefon lub tablet. Bez instalacji. Działa z klawiaturą, myszą, padem i dotykiem.</p>
+      <a class="btn" href="./" data-pl="Graj teraz" data-en="Play now">Graj teraz</a>
+    </section>
+
+    <section class="card">
+      <h2 data-pl="Android — aplikacja" data-en="Android — app">Android — aplikacja</h2>
+      <ol>
+        <li data-pl="Pobierz plik APK." data-en="Download the APK file.">Pobierz plik APK.</li>
+        <li data-pl="Otwórz go na telefonie." data-en="Open it on your phone.">Otwórz go na telefonie.</li>
+        <li data-pl="Zezwól na instalację z tego źródła." data-en="Allow installing from this source.">Zezwól na instalację z tego źródła.</li>
+      </ol>
+      <p data-pl="Albo: otwórz grę w Chrome → menu ⋮ → „Dodaj do ekranu głównego”." data-en="Or: open the game in Chrome → ⋮ menu → “Add to Home screen”.">Albo: otwórz grę w Chrome → menu ⋮ → „Dodaj do ekranu głównego”.</p>
+      <a class="btn" href="https://github.com/jakubandroid31-create/lumina-kroniki/releases/latest/download/lumina-kroniki.apk" rel="noopener noreferrer" data-pl="Pobierz APK" data-en="Download APK">Pobierz APK</a>
+    </section>
+
+    <section class="card">
+      <h2 data-pl="iPhone / iPad" data-en="iPhone / iPad">iPhone / iPad</h2>
+      <p data-pl="Gra działa jak aplikacja (pełny ekran, offline) po dodaniu do ekranu głównego:" data-en="The game works like an app (fullscreen, offline) once added to your home screen:">Gra działa jak aplikacja (pełny ekran, offline) po dodaniu do ekranu głównego:</p>
+      <ol>
+        <li data-pl="Otwórz grę w Safari." data-en="Open the game in Safari.">Otwórz grę w Safari.</li>
+        <li data-pl="Stuknij „Udostępnij”." data-en="Tap “Share”.">Stuknij „Udostępnij”.</li>
+        <li data-pl="Wybierz „Do ekranu początkowego”." data-en="Choose “Add to Home Screen”.">Wybierz „Do ekranu początkowego”.</li>
+      </ol>
+      <a class="btn" href="./" data-pl="Otwórz grę" data-en="Open the game">Otwórz grę</a>
+    </section>
+
+    <section class="card">
+      <h2 data-pl="Komputer (PC / Mac)" data-en="Computer (PC / Mac)">Komputer (PC / Mac)</h2>
+      <p data-pl="Otwórz grę w Chrome, Edge lub Firefoksie. W Chrome/Edge możesz ją zainstalować ikoną „Zainstaluj” w pasku adresu — uruchomi się w osobnym oknie, także offline. F11 lub ustawienia gry = pełny ekran." data-en="Open the game in Chrome, Edge or Firefox. In Chrome/Edge you can install it with the “Install” icon in the address bar — it then runs in its own window, offline too. F11 or the game settings = fullscreen.">Otwórz grę w Chrome, Edge lub Firefoksie. W Chrome/Edge możesz ją zainstalować ikoną „Zainstaluj” w pasku adresu — uruchomi się w osobnym oknie, także offline. F11 lub ustawienia gry = pełny ekran.</p>
+      <a class="btn" href="./" data-pl="Graj na komputerze" data-en="Play on computer">Graj na komputerze</a>
+    </section>
+  </div>
+
+  <section class="card wide">
+    <h2 data-pl="Co znajdziesz w grze" data-en="What's in the game">Co znajdziesz w grze</h2>
+    <ul class="feat">
+      <li data-pl="10 krain odblokowywanych po kolei, każda z bossem" data-en="10 realms unlocked one by one, each with a boss">10 krain odblokowywanych po kolei, każda z bossem</li>
+      <li data-pl="53 oryginalne formy stworzeń i 9 typów żywiołów" data-en="53 original creature forms and 9 elemental types">53 oryginalne formy stworzeń i 9 typów żywiołów</li>
+      <li data-pl="Łapanie stworzeń, ewolucje i nauka ruchów" data-en="Catching creatures, evolutions and learning moves">Łapanie stworzeń, ewolucje i nauka ruchów</li>
+      <li data-pl="Trenerzy, bossowie krain i finałowa walka" data-en="Trainers, realm bosses and a final battle">Trenerzy, bossowie krain i finałowa walka</li>
+      <li data-pl="Kapliczki: odpoczynek, zapis i podróż między krainami" data-en="Shrines: rest, save and travel between realms">Kapliczki: odpoczynek, zapis i podróż między krainami</li>
+      <li data-pl="Bestiariusz, sklep, schowek na stworzenia" data-en="Bestiary, shop, creature storage box">Bestiariusz, sklep, schowek na stworzenia</li>
+      <li data-pl="5 slotów zapisu + eksport/import do pliku" data-en="5 save slots + export/import to a file">5 slotów zapisu + eksport/import do pliku</li>
+      <li data-pl="Kamera z zoomem i obrotem o 360°" data-en="Camera with zoom and full 360° rotation">Kamera z zoomem i obrotem o 360°</li>
+      <li data-pl="Pełna zmiana klawiszy i przycisków pada" data-en="Fully rebindable keys and gamepad buttons">Pełna zmiana klawiszy i przycisków pada</li>
+      <li data-pl="Oryginalna muzyka chiptune — inna w każdej krainie" data-en="Original chiptune music — a different track in every realm">Oryginalna muzyka chiptune — inna w każdej krainie</li>
+      <li data-pl="Polski i angielski" data-en="Polish and English">Polski i angielski</li>
+      <li data-pl="Działa offline po pierwszym uruchomieniu" data-en="Works offline after the first launch">Działa offline po pierwszym uruchomieniu</li>
+    </ul>
+  </section>
+
+  <section class="card wide">
+    <h2 data-pl="Dziesięć krain" data-en="The ten realms">Dziesięć krain</h2>
+    <ol class="realms">
+      <li data-pl="Łąki Świtu" data-en="Dawnlight Meadows">Łąki Świtu</li>
+      <li data-pl="Szepczący Las" data-en="Whispering Woods">Szepczący Las</li>
+      <li data-pl="Kryształowe Jaskinie" data-en="Crystal Caverns">Kryształowe Jaskinie</li>
+      <li data-pl="Wybrzeże Mew" data-en="Gullwing Coast">Wybrzeże Mew</li>
+      <li data-pl="Pustynia Słońca" data-en="Sunscar Desert">Pustynia Słońca</li>
+      <li data-pl="Wulkan Popiołów" data-en="Ashen Volcano">Wulkan Popiołów</li>
+      <li data-pl="Mroźne Szczyty" data-en="Frostpeak Heights">Mroźne Szczyty</li>
+      <li data-pl="Nawiedzone Mokradła" data-en="Haunted Mire">Nawiedzone Mokradła</li>
+      <li data-pl="Wieża Niebios" data-en="Skyward Spire">Wieża Niebios</li>
+      <li data-pl="Cytadela Zmierzchu" data-en="Twilight Citadel">Cytadela Zmierzchu</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span data-pl="Kod źródłowy:" data-en="Source code:">Kod źródłowy:</span>
+    <a href="https://github.com/jakubandroid31-create/lumina-kroniki" rel="noopener noreferrer">github.com/jakubandroid31-create/lumina-kroniki</a>
+  </footer>
+</main>
+<script>
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-' + l + ']').forEach(el => { el.textContent = el.getAttribute('data-' + l); });
+    document.getElementById('pl').classList.toggle('on', l === 'pl');
+    document.getElementById('en').classList.toggle('on', l === 'en');
+    document.title = l === 'pl' ? 'LUMINA: Kroniki Dziesięciu Krain — zagraj lub pobierz' : 'LUMINA: Chronicles of the Ten Realms — play or download';
+    try { localStorage.setItem('lumina-dl-lang', l); } catch (e) {}
+  }
+  document.getElementById('pl').onclick = () => setLang('pl');
+  document.getElementById('en').onclick = () => setLang('en');
+  let saved = null; try { saved = localStorage.getItem('lumina-dl-lang'); } catch (e) {}
+  if (saved) setLang(saved);
+  else if (!(navigator.language || 'pl').toLowerCase().startsWith('pl')) setLang('en');
+</script>
+</body>
+</html>
